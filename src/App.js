@@ -19,9 +19,21 @@ function App() {
     setCeleb([...celeb, allContacts[random]]);
     }
 
+    const sortPopularity = () => {
+      let sorting = celeb.sort((a,b) => a.popularity > b.popularity ? 1 : -1);
+      setCeleb([...celeb, sorting]);
+      }
+
+    const sortCeleb = () => {
+      let sort = celeb.sort((a,b) => (a.name > b.name ? 1 : -1));
+      setCeleb([...celeb, sort]);
+    }
+
   return <div className="App">
 <div>
 <button onClick={randomCeleb}>Add Random Celeb</button>
+<button onClick={sortCeleb}>Sort by Name</button>
+<button onClick={sortPopularity}>Sort by Popularity</button>
 </div>
 <table>
     <thead>
